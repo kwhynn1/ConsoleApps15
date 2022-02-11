@@ -1,6 +1,6 @@
-﻿using ConsoleAppProject.App03;
-using ConsoleAppProject.Helpers;
-using System;
+﻿using System;
+using ConsoleAppProject.App01;
+
 
 namespace ConsoleAppProject
 {
@@ -18,6 +18,8 @@ namespace ConsoleAppProject
         {
             Console.ForegroundColor = ConsoleColor.White;
 
+            string ans;
+
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2021-2022! ");
@@ -25,6 +27,30 @@ namespace ConsoleAppProject
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
+            Console.WriteLine("    Which App Would you Like to Run?");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("    a = Distance Converter");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.Write("    >");
+
+            ans = Console.ReadLine();
+            ans.ToLower();
+
+            switch (ans)
+            {
+
+                case "a":
+                    DistanceConverter converter = new DistanceConverter();
+                    converter.Run();
+                    break;
+            }
+
         }
+
+
     }
+   
 }
