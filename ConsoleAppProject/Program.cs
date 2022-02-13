@@ -39,14 +39,21 @@ namespace ConsoleAppProject
             ans = Console.ReadLine();
             ans.ToLower();
 
-            switch (ans)
-            {
+            
+            
+                switch (ans)
+                {
 
-                case "a":
-                    DistanceConverter converter = new DistanceConverter();
-                    converter.Run();
-                    break;
-            }
+                    case "a":
+                        DistanceConverter converter = new DistanceConverter();
+                        converter.Run();
+                        break;
+
+                    default:
+                        Console.WriteLine("    Your input is invalid");
+                        break;
+                }
+            
 
         }
 

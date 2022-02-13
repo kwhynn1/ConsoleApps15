@@ -2,7 +2,7 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// This app converts Miles to Feet
+    /// Allows the user to convert distances measured in one unit of distance into another unit of distance
     /// </summary>
     /// <author>
     /// Kyle Whynn 
@@ -151,6 +151,9 @@ namespace ConsoleAppProject.App01
             miles = meters / MILES_IN_METERS;
         }
 
+        /// <summary>
+        /// Used to convert meters into feet
+        /// </summary>
         private void ConvertMetersToFeet()
         {
             feet = meters * FEET_IN_METERS;
@@ -174,46 +177,95 @@ namespace ConsoleAppProject.App01
         public void Choice() 
         {
 
+            while (convertfrom < 1 || convertfrom > 3)
 
-            Console.WriteLine("Select distance unit you to convert from");
-            Console.WriteLine("1. Feet");
-            Console.WriteLine("2. Meters");
-            Console.WriteLine("3. Miles");
-            Console.WriteLine();
-            Console.Write("> ");
-            convertfrom = int.Parse(Console.ReadLine());
+            {
+
+                Console.WriteLine("Select distance unit you to convert from");
+                Console.WriteLine("1. Feet");
+                Console.WriteLine("2. Meters");
+                Console.WriteLine("3. Miles");
+                Console.WriteLine();
+                Console.Write("> ");
+                convertfrom = int.Parse(Console.ReadLine());
+
+                if (convertfrom < 1 || convertfrom > 3) 
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Your Input is invalid");
+                    Console.WriteLine();
+
+                }
+
+            }
 
             Console.WriteLine();
             if (convertfrom == 1)
             {
-                Console.WriteLine("Select distance unit you to convert to");
-                Console.WriteLine("2. Meters");
-                Console.WriteLine("3. Miles");
-                Console.WriteLine();
-                Console.Write("> ");
-                convertto = int.Parse(Console.ReadLine());
+                while (convertto < 2 || convertto > 3)
+                {
+                    Console.WriteLine("Select distance unit you to convert to");
+                    Console.WriteLine("2. Meters");
+                    Console.WriteLine("3. Miles");
+                    Console.WriteLine();
+                    Console.Write("> ");
+                    convertto = int.Parse(Console.ReadLine());
+
+                    if (convertto < 2 || convertto > 3)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Your Input is invalid");
+                        Console.WriteLine();
+                    }
+                }
             }
             else if (convertfrom == 2)
             {
+                while (convertto < 1 || convertto > 3 || convertto == 2)
+                {
+                    Console.WriteLine("Select distance unit you to convert to");
+                    Console.WriteLine("1. Feet");
+                    Console.WriteLine("3. Miles");
+                    Console.WriteLine();
+                    Console.Write("> ");
+                    convertto = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Select distance unit you to convert to");
-                Console.WriteLine("1. Feet");
-                Console.WriteLine("3. Miles");
-                Console.WriteLine();
-                Console.Write("> ");
-                convertto = int.Parse(Console.ReadLine());
+                    if (convertto < 1 || convertto > 3 || convertto == 2)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Your Input is invalid");
+                        Console.WriteLine();
+                    }
+                }
             }
+            
             else if (convertfrom == 3)
             {
+                while (convertto < 1 || convertto > 2)
+                {
+                    Console.WriteLine("Select distance unit you to convert to");
+                    Console.WriteLine("1. Feet");
+                    Console.WriteLine("2. Meters");
+                    Console.WriteLine();
+                    Console.Write("> ");
+                    convertto = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Select distance unit you to convert to");
-                Console.WriteLine("1. Feet");
-                Console.WriteLine("2. Meters");
-                Console.WriteLine();
-                Console.Write("> ");
-                convertto = int.Parse(Console.ReadLine());
-            } 
+                    if (convertto < 1 || convertto > 2)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Your Input is invalid");
+                        Console.WriteLine();
+                    }
+                }
+            }
 
+             if (convertfrom < 1 || convertfrom > 3) 
+                {
+                    
+                    Console.WriteLine("Your Input is invalid");
+
+                } 
+            
         }
 
         /// <summary>
