@@ -40,17 +40,29 @@ namespace ConsoleAppProject
             ans.ToLower();
 
             
-            
                 switch (ans)
                 {
 
                     case "a":
+
                         DistanceConverter converter = new DistanceConverter();
                         converter.Run();
                         break;
 
                     default:
+                        
+                        Console.WriteLine();
                         Console.WriteLine("    Your input is invalid");
+                        Console.WriteLine();
+                        Console.WriteLine("    Which App Would you Like to Run?");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine("    a = Distance Converter");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.Write("    >");
+                        ans = Console.ReadLine();
+                        ans.ToLower();
                         break;
                 }
             
