@@ -108,7 +108,6 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private static void OutputHeading()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
 
             Console.WriteLine();
             Console.WriteLine(" ==============================");
@@ -192,6 +191,7 @@ namespace ConsoleAppProject.App01
                 {
                     Console.WriteLine();
                     Console.WriteLine(" Your Input is invalid");
+                    Console.WriteLine(" Try Again");
                     Console.WriteLine();
 
                 }
@@ -212,7 +212,6 @@ namespace ConsoleAppProject.App01
                 {
                     Console.WriteLine();
                     Console.WriteLine(" Your Input is invalid");
-                    Console.WriteLine();
                     unit = SelectUnit(" Try Again");
 
                 }
