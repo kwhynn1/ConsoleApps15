@@ -1,6 +1,6 @@
 ﻿using System;
 using ConsoleAppProject.App01;
-
+using ConsoleAppProject.App02;
 
 namespace ConsoleAppProject
 {
@@ -32,10 +32,10 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine("    a = Distance Converter");
             Console.WriteLine();
+            Console.WriteLine("    b = BMI Converter");
             Console.WriteLine();
-
+            Console.WriteLine();
             Console.Write("    >");
-
             ans = Console.ReadLine();
             ans.ToLower();
 
@@ -49,21 +49,27 @@ namespace ConsoleAppProject
                         converter.Run();
                         break;
 
-                    default:
-                        
-                        Console.WriteLine();
-                        Console.WriteLine("    Your input is invalid");
-                        Console.WriteLine();
-                        Console.WriteLine("    Which App Would you Like to Run?");
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        Console.WriteLine("    a = Distance Converter");
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        Console.Write("    >");
-                        ans = Console.ReadLine();
-                        ans.ToLower();
+                    case "b":
+
+                        BMI BMIconverter = new BMI();
+                        BMIconverter.Run();
                         break;
+
+
+                default:
+
+                    Console.WriteLine("    Which App Would you Like to Run?");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("    a = Distance Converter");
+                    Console.WriteLine();
+                    Console.WriteLine("    b = BMI Converter");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("    >");
+                    ans = Console.ReadLine();
+                    ans.ToLower();
+                    break;
                 }
             
 
