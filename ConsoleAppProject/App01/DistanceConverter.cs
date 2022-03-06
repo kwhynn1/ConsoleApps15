@@ -1,9 +1,9 @@
 ﻿using System;
-
+using ConsoleAppProject.Helpers;
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Allows the user to convert distances measured in one unit of distance into another unit of distance
+    /// Allows the user to convert distances measured in one unit of distance into another unit of choice.
     /// </summary>
     /// <author>
     /// Kyle Whynn 
@@ -16,29 +16,24 @@ namespace ConsoleAppProject.App01
         public const int FEET_IN_MILES = 5280;
         public const double METRES_IN_MILES = 1609.34;
         public const double FEET_IN_METERS = 3.280;
+        public 
 
         /// <summary>
-        /// Varibale for number inputrs
+        /// Varibale for number inputs
         /// </summary>
         string value;
 
         /// <summary>
         ///  Variables to store distance value
         /// </summary>
-        private double fromDistance;
-        private double toDistance;
-        private double Distance;
-
-        /// <summary>
-        /// Variable used for data validation
-        /// </summary>
-        private bool checkDistance;
+        public double FromDistance;
+        public double ToDistance;
 
         /// <summary>
         /// Variables for user selected units
         /// </summary>
-        private DistanceUnits fromUnit;
-        private DistanceUnits toUnit;
+        public DistanceUnits FromUnit;
+        public DistanceUnits ToUnit;
 
         /// <summary>
         /// Enum for distance units
@@ -46,7 +41,7 @@ namespace ConsoleAppProject.App01
         public enum DistanceUnits
         {
             NoUnit,
-            Feet,
+            Feet=1,
             Meter,
             Mile
         }
@@ -56,13 +51,13 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void Run()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("App01 Distance Converter");
 
-            CheckUnit(fromUnit = SelectUnit(" Please select your from unit"));
+            CheckUnit(FromUnit = SelectUnit(" Please select your from unit"));
 
-            CheckUnit(toUnit = SelectUnit(" Please select your to unit"));
+            CheckUnit(ToUnit = SelectUnit(" Please select your to unit"));
 
-            fromDistance = InputDistance($" Please enter the distance in {fromUnit} > ");
+            FromDistance = ConsoleHelper.InputNumber($" Please enter the distance in {FromUnit} > ");
 
             ConvertDistance();
 
@@ -104,101 +99,55 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// Outs a heading to user
-        /// </summary>
-        private static void OutputHeading()
-        {
-
-            Console.WriteLine();
-            Console.WriteLine(" ==============================");
-            Console.WriteLine("    App01 Distance Converter   ");
-            Console.WriteLine("            by Kyle Whynn           ");
-            Console.WriteLine(" ==============================");
-            Console.WriteLine();
-        }
-
-        /// <summary>
         /// Outputs distance to user
         /// </summary>
         private void OutputDistance()
         {
-            Console.WriteLine($" {fromDistance} {fromUnit} = {toDistance}  {toUnit}s!");
+            Console.WriteLine($" {FromDistance} {FromUnit} = {ToDistance}  {ToUnit}s!");
         }
 
         /// <summary>
         ///  COnverts the distance to user defined unit
         /// </summary>
-        private void ConvertDistance()
+       public void ConvertDistance()
         {
-            if (fromUnit == DistanceUnits.Mile &&
-               toUnit == DistanceUnits.Feet)
+            if (FromUnit == DistanceUnits.Mile &&
+               ToUnit == DistanceUnits.Feet)
             {
-                toDistance = fromDistance * FEET_IN_MILES;
+                ToDistance = FromDistance * FEET_IN_MILES;
             }
-            else if (fromUnit == DistanceUnits.Feet &&
-                     toUnit == DistanceUnits.Mile)
+            else if (FromUnit == DistanceUnits.Feet &&
+                     ToUnit == DistanceUnits.Mile)
             {
-                toDistance = fromDistance / FEET_IN_MILES;
+                ToDistance = FromDistance / FEET_IN_MILES;
             }
-            else if (fromUnit == DistanceUnits.Meter &&
-                      toUnit == DistanceUnits.Mile)
+            else if (FromUnit == DistanceUnits.Meter &&
+                      ToUnit == DistanceUnits.Mile)
             {
-                toDistance = fromDistance / METRES_IN_MILES;
+                ToDistance = FromDistance / METRES_IN_MILES;
             }
-            else if (fromUnit == DistanceUnits.Mile &&
-                     toUnit == DistanceUnits.Meter)
+            else if (FromUnit == DistanceUnits.Mile &&
+                     ToUnit == DistanceUnits.Meter)
             {
-                toDistance = fromDistance * METRES_IN_MILES;
+                ToDistance = FromDistance * METRES_IN_MILES;
             }
-            else if (fromUnit == DistanceUnits.Meter &&
-                    toUnit == DistanceUnits.Feet)
+            else if (FromUnit == DistanceUnits.Meter &&
+                    ToUnit == DistanceUnits.Feet)
             {
-                toDistance = fromDistance * FEET_IN_METERS;
+                ToDistance = FromDistance * FEET_IN_METERS;
             }
-            else if (fromUnit == DistanceUnits.Feet &&
-                    toUnit == DistanceUnits.Meter)
+            else if (FromUnit == DistanceUnits.Feet &&
+                    ToUnit == DistanceUnits.Meter)
             {
-                toDistance = fromDistance / FEET_IN_METERS;
+                ToDistance = FromDistance / FEET_IN_METERS;
 
             }
-            else if (fromUnit == toUnit) 
+            else if (FromUnit == ToUnit) 
             {
-                toDistance = fromDistance;
-            
+                ToDistance = FromDistance;
             }
         }
-
-        /// <summary>
-        /// USe to get distance input from user
-        /// </summary>
-        private double InputDistance(string prompt)
-        {
-            while (checkDistance != true || Distance < 0)
-            {
-                Console.WriteLine();
-                Console.Write(prompt);
-                value = Console.ReadLine();
-                Console.WriteLine();
-
-                checkDistance = double.TryParse(value, out Distance);
-
-                if (checkDistance == true)
-                {
-                    Distance = Convert.ToDouble(value);
-                }
-
-                if (checkDistance != true || Distance < 0)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine(" Your Input is invalid");
-                    Console.WriteLine(" Try Again");
-                    Console.WriteLine();
-
-                }
-            }
-            return Distance;
-        }
-
+    
         /// <summary>
         ///  Used to vvalidate unit input.
         /// </summary>
