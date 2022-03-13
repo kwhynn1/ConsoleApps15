@@ -1,0 +1,70 @@
+﻿@model ConsoleAppProject.App01.DistanceConverter
+@using ConsoleAppProject.App01
+@{
+    ViewData["Title"] = "KW Distance Conveter";
+}
+
+<header>
+<h1>  Distance Conveter</h1>
+<h2>by Kyle Whynn</h2>
+<p> This app will convert a selected unit from one to another</p>
+</header>
+
+<form method="post">
+
+    <section>
+
+        <h3>Convert from:</h3>
+
+        <div>
+            <label>From Unit: </label>
+        <select asp-for="@Model.FromUnit">
+        <option>@DistanceConverter.DistanceUnits.Meter</option>
+        <option>@DistanceConverter.DistanceUnits.Mile</option>
+        <option>@DistanceConverter.DistanceUnits.Feet</option>
+         </select>
+         </div>
+
+         <div>
+         @if(Model.FromDistance == 0)
+        {
+            <input type ="text" asp-for="@Model.FromDistance" value="" placeholder="From Distance" required />
+        }
+        else
+        {
+            <input type ="text" asp-for="@Model.FromDistance" placeholder="From Distance" required />
+        }
+        </div>
+
+         <h3>Convert to:</h3>
+
+         <div>
+            <label>To Unit: </label>
+        <select asp-for="@Model.ToUnit">
+        <option>@DistanceConverter.DistanceUnits.Meter</option>
+        <option>@DistanceConverter.DistanceUnits.Mile</option>
+        <option>@DistanceConverter.DistanceUnits.Feet</option>
+         </select>
+         </div>
+
+         <div>
+        @if(Model.ToDistance == 0)
+        {
+            <input type ="text" asp-for="@Model.ToDistance" value="" placeholder="From Distance" readonly />
+        }
+        else
+        {
+            <input type ="text" asp-for="@Model.ToDistance" placeholder="From Distance"  readonly />
+        }
+        </div>
+
+
+        <div>
+
+            <button class="btn btn-success" type="submit">Calculate</button>
+
+        </div>
+
+    </section>
+   
+</form>

@@ -1,6 +1,7 @@
 ﻿using System;
 using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
 
 namespace ConsoleAppProject
 {
@@ -34,6 +35,7 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine("    b = BMI Converter");
             Console.WriteLine();
+            Console.WriteLine("    c = Grade Calculator");
             Console.WriteLine();
             Console.Write("    >");
             ans = Console.ReadLine();
@@ -54,6 +56,11 @@ namespace ConsoleAppProject
                         BMI BMIconverter = new BMI();
                         BMIconverter.Run();
                         break;
+                case "c":
+
+                   StudentGrades app03 = new StudentGrades();
+                    app03.Run();
+                    break;
 
 
                 default:
@@ -65,6 +72,7 @@ namespace ConsoleAppProject
                     Console.WriteLine();
                     Console.WriteLine("    b = BMI Converter");
                     Console.WriteLine();
+                    Console.WriteLine("    c = Grade Calculator");
                     Console.WriteLine();
                     Console.Write("    >");
                     ans = Console.ReadLine();
