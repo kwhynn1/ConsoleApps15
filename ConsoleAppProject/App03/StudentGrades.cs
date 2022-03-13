@@ -5,24 +5,46 @@ using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App03
 {
+
+    /// <summary>
+    /// This application will allow a tutor to enter a single mark of each of a list of 
+    /// students and it will convert that mark into a grade. The application will 
+    /// then be able to calculate simple statistics 
+    /// and also calculate and display a student grade profile.
+    /// </summary>
+
+    /// <author>
+    /// Kyle Whynn
+    /// </author>
+
     public class StudentGrades
     {
+        /// <summary>
+        /// Thesse are the varibles 
+        /// used in the classess
+        /// </summary>
         public const int MIN_F = 0;
         public const int MIN_D = 40;
         public const int MIN_C = 50;
         public const int MIN_B = 60;
         public const int MIN_A = 70;
-        public int F = 0;
-        public int D = 0;
-        public int C = 0;
-        public int B = 0;
-        public int A = 0;
+        public int Mark;
+        public double F = 0;
+        public double D = 0;
+        public double C = 0;
+        public double B = 0;
+        public double A = 0;
 
-
+        /// <summary>
+        /// Arrays declared for use
+        /// </summary>
         public string[] Students;
         public int[] Marks;
-        public int Mark;
-
+        
+        /// <summary>
+        /// enun class with grades 
+        /// for program
+        /// </summary>
         public enum Grades
         {
             X,
@@ -33,15 +55,21 @@ namespace ConsoleAppProject.App03
             A
         }
 
+        /// <summary>
+        /// Used to run the program
+        /// </summary>
         public void Run()
         {
-            Students = new string [] { "Peter", "Kofi", "Oni" };
+            Students = new string [] { "Kwame", "Kofi", "Oni", "Adassa", "Adisa", "Kaapo", "Kael", "Kaden", "Aasir", "Jahseh"};
             Marks = new int[Students.Length];
             ConsoleHelper.OutputHeading("App03 Student Marks");
           
             Menu("Select Your Choice From The Menu");
         }
 
+        /// <summary>
+        /// Use to input the student's marks
+        /// </summary>
         private void InputMarks() 
         {
             int counter = 0;
@@ -54,6 +82,9 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        ///  Outputs the student's mark, grade and name
+        /// </summary>
         private void OutputStudents() 
         {
             for (int i = 0; i < Marks.Length; i++)
@@ -64,6 +95,9 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        /// Converts the marks into grades
+        /// </summary>
         public Grades ConvertToGrades(int mark)
         {
             if (mark >= 0 && mark < MIN_D)
@@ -89,6 +123,10 @@ namespace ConsoleAppProject.App03
             else return Grades.X;
         }
 
+        /// <summary>
+        ///  Find the minimum mark in the 
+        ///  marks array
+        /// </summary>
         private int MinimumMark ()
         {
             int minmark = Marks[0];
@@ -103,6 +141,10 @@ namespace ConsoleAppProject.App03
             return minmark;
         }
 
+        /// <summary>
+        ///  Find the maximum mark in the 
+        ///  marks array
+        /// </summary>
         private int MaximumMark()
         {
             int maxmark = Marks[0];
@@ -117,19 +159,28 @@ namespace ConsoleAppProject.App03
             return maxmark;
         }
 
-        private int MeanMark() 
+        /// <summary>
+        /// UUSe to calculate the mean maek from
+        /// marks array
+        /// </summary>
+        private double MeanMark() 
         {
             int mark = 0;
 
-            for (int i = 0; i < Marks.Length; i++)
+            for (int i = 0; i < Students.Length; i++)
             {
                  mark = Marks[i] + mark;
             }
-            int meanMark = mark / Marks.Length;
+            
+            double meanMark = (double)mark / Students.Length;
 
             return meanMark;
         }
 
+        /// <summary>
+        /// Allows use to select from
+        /// a menu
+        /// </summary>
         private void Menu(string prompt)
         {
             string[] choices =
@@ -169,6 +220,7 @@ namespace ConsoleAppProject.App03
             {
                 Console.WriteLine();
                 GradeProfiles();
+                CalculateGradeProfiles();
                 OutputGradeProfiles();
                 Menu("Select Your Choice From The Menu");
             }
@@ -179,6 +231,10 @@ namespace ConsoleAppProject.App03
 
         }
 
+        /// <summary>
+        /// Counts the amount of 
+        /// grades
+        /// </summary>
         private void GradeProfiles ()
         {
             for (int i = 0; i < Marks.Length; i++)
@@ -211,11 +267,25 @@ namespace ConsoleAppProject.App03
 
         }
 
+        /// <summary>
+        /// Calculate the GradeProfiles
+        /// </summary>
+        private void CalculateGradeProfiles()
+        {
+            F = F / Students.Length;
+            D = D / Students.Length;
+            C = C / Students.Length;
+            B = B / Students.Length;
+            A = A / Students.Length;
+        }
+
+        /// <summary>
+        /// Outputs the Grade Profile
+        /// </summary>
         private void OutputGradeProfiles ()
         { 
-        
-            Console.WriteLine($"The Amount Of Students that Got A Grade: \n F: {F} \n D: {D} \n C: {C} \n B: {B} \n A: {A} ");
-
+            Console.WriteLine("The Amount Of Students that Got A Grade:\nF: " + F.ToString("P")  +  "\n" + "D: " + D.ToString("P") + "\n" + "C: " +  C.ToString("P") +  "\n" + "B: " + B.ToString("P") +  "\n" + "A: " + A.ToString("P"));
         }
+
     }
 }
