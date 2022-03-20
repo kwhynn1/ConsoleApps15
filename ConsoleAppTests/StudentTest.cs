@@ -76,6 +76,46 @@ namespace ConsoleAppTests
             Assert.AreEqual(expectedGrade, app03.ConvertToGrades(app03.Mark));
         }
 
+        [TestMethod]
+        public void MinGradeTest()
+        {
+            StudentGrades app03 = new StudentGrades();
+            app03.Marks= new int[] {1, 54, 52, 70, 80, 1, 0, 52, 70, 80};
+
+            int minMark = app03.MinimumMark();
+
+         
+            int expectedMark = 0;
+
+            Assert.AreEqual(expectedMark, minMark);
+        }
+
+        [TestMethod]
+        public void MaxGradeTest()
+        {
+            StudentGrades app03 = new StudentGrades();
+            app03.Marks = new int[] { 1, 54, 52, 70, 80, 1, 0, 52, 70, 90 };
+
+            int maxMark = app03.MaximumMark();
+
+            int expectedMark = 90;
+
+            Assert.AreEqual(expectedMark, maxMark);
+        }
+
+        [TestMethod]
+        public void MeanGradeTest()
+        {
+            StudentGrades app03 = new StudentGrades();
+            app03.Marks = new int[] { 1, 54, 52, 70, 80, 1, 0, 52, 70, 90 };
+            app03.Students = new string[] { "Kwame", "Kofi", "Oni", "Adassa", "Adisa", "Kaapo", "Kael", "Kaden", "Aasir", "Jahseh" };
+            double meanMark = app03.MeanMark();
+
+            int expectedMean = 47;
+            
+            Assert.AreEqual(expectedMean, meanMark);
+        }
+
 
 
 

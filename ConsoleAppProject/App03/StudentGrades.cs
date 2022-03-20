@@ -127,7 +127,7 @@ namespace ConsoleAppProject.App03
         ///  Find the minimum mark in the 
         ///  marks array
         /// </summary>
-        private int MinimumMark ()
+        public int MinimumMark ()
         {
             int minmark = Marks[0];
 
@@ -145,7 +145,7 @@ namespace ConsoleAppProject.App03
         ///  Find the maximum mark in the 
         ///  marks array
         /// </summary>
-        private int MaximumMark()
+        public int MaximumMark()
         {
             int maxmark = Marks[0];
 
@@ -163,7 +163,7 @@ namespace ConsoleAppProject.App03
         /// UUSe to calculate the mean maek from
         /// marks array
         /// </summary>
-        private double MeanMark() 
+        public double MeanMark() 
         {
             int mark = 0;
 
