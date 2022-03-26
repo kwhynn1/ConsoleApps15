@@ -10,5 +10,5 @@
 1. [App01: Distance Converter](https://github.com/kwhynn1/ConsoleApps15/wiki/App01:-Distance-Converter)  
 2. [App02: BMI Calculator](https://github.com/kwhynn1/ConsoleApps15/wiki/App02:-Body-Mass-Index-Calculator)
 3. [App03: Students Marks](https://github.com/kwhynn1/ConsoleApps15/wiki/App03-Student-Marks)
-4. App04: Social Network
+4. [App04: Social Network](https://github.com/kwhynn1/ConsoleApps15/wiki/App04:-Social-Network---Inheritance)
 5. App05: R-P-S Game
