@@ -63,7 +63,7 @@ namespace ConsoleAppProject.App04
 
             if (likes > 0)
             {
-                Console.WriteLine($"    Likes: -  {likes}  people like this.");
+                Console.WriteLine($"      Likes: -  {likes}  people like this.");
             }
             else
             {

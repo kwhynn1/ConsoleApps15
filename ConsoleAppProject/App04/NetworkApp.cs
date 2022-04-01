@@ -56,10 +56,13 @@ namespace ConsoleAppProject.App04
                             Console.WriteLine();
                             break;
                     case 6:
-                           
-                        
+                            ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
+                            NewsFeed.Addlike(ID);
                             break;
-                    case 7: break;
+                    case 7:
+                            ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
+                            NewsFeed.unlike(ID);
+                            break;
                     case 8:
                             ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
                             Console.WriteLine();

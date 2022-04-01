@@ -14,9 +14,9 @@ namespace ConsoleAppProject.App04
         public String Caption;
         public int like;
 
-        public  NewsFeed ()
+        public NewsFeed()
         {
-            posts = new List<Post>(); 
+            posts = new List<Post>();
         }
 
         public void AddPhoto(PhotoPost photo)
@@ -31,7 +31,7 @@ namespace ConsoleAppProject.App04
 
         public void Display()
         {
-            foreach (Post post in posts) 
+            foreach (Post post in posts)
             {
                 post.Display();
                 Console.WriteLine();
@@ -40,11 +40,11 @@ namespace ConsoleAppProject.App04
 
         public void CreateMessagePost()
         {
-            
+
             Console.WriteLine();
-            Message =  EnterText("      Enter Message >");
+            Message = EnterText("      Enter Message >");
             Console.WriteLine();
-            Author = EnterText  ("      Enter Author >");
+            Author = EnterText("      Enter Author >");
             Console.WriteLine();
             MessagePost post = new MessagePost(Message, Author);
             AddMessagePost(post);
@@ -55,13 +55,13 @@ namespace ConsoleAppProject.App04
             Console.WriteLine();
             Filename = EnterText("      Enter Filename >");
             Console.WriteLine();
-            Caption = EnterText ("      Enter Caption >");
+            Caption = EnterText("      Enter Caption >");
             Console.WriteLine();
             PhotoPost post = new PhotoPost(Author, Filename, Caption);
             AddPhoto(post);
         }
 
-        public string EnterText(string EnterTextMessage) 
+        public string EnterText(string EnterTextMessage)
         {
             string text;
             Console.Write(EnterTextMessage);
@@ -73,10 +73,10 @@ namespace ConsoleAppProject.App04
         {
             foreach (Post post in posts)
                 if (post.PostID == id)
-                { 
+                {
                     return post;
                 }
-                    return null;
+            return null;
         }
 
         public void FindPostByAuthor(String author)
@@ -85,7 +85,8 @@ namespace ConsoleAppProject.App04
                 if (post.Author == author)
                 {
                     post.Display();
-                } else
+                }
+                else
                 {
                     Console.WriteLine("      Author Not Found");
                 }
@@ -95,11 +96,12 @@ namespace ConsoleAppProject.App04
         {
             Post post = FindPost(id);
 
-            if (post != null) 
+            if (post != null)
             {
                 Console.WriteLine($"\n      The Post with ID {id} has been Removed");
                 posts.Remove(post);
-            } else
+            }
+            else
             {
                 Console.WriteLine($"\n      The Post with ID {id} does not exist");
             }
@@ -114,18 +116,35 @@ namespace ConsoleAppProject.App04
         public void AddComment(int ID, string text)
         {
             foreach (Post post in posts)
-                
+
                 if (post.PostID == ID)
                 {
                     post.comments.Add(text);
                 }
         }
 
+        public void Addlike(int ID)
+        {
+            foreach (Post post in posts)
 
+                if (post.PostID == ID)
+                {
+                    post.Like();
+                }
+
+        }
+
+        public void unlike(int ID)
+        {
+            foreach (Post post in posts)
+
+                if (post.PostID == ID)
+                {
+                    post.Unlike();
+                }
+        }
 
 
     }
-
-
 }
   
