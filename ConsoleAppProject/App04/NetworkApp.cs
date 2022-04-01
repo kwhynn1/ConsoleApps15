@@ -66,7 +66,7 @@ namespace ConsoleAppProject.App04
                     case 8:
                             ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
                             Console.WriteLine();
-                            Console.WriteLine("Enter Your Comment");
+                            Console.WriteLine("      Enter Your Comment");
                             string comment = Console.ReadLine();
                             NewsFeed.AddComment(ID, comment);   
                             break;

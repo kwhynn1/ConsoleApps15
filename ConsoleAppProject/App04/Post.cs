@@ -6,21 +6,20 @@ namespace ConsoleAppProject.App04
 {
     public class Post
     {
+        /// <summary>
+        /// Variables declared for use in app
+        /// </summary>
         public String Author;
-
         public DateTime Timestamp;
-
         private int likes;
-
         public int PostID;
-
         private static int intances = 0;
-
         public readonly List<String> comments;
-
         public NewsFeed NewsFeed = new NewsFeed();
   
-
+        /// <summary>
+        ///  COnstuctor for Post object
+        /// </summary>
         public Post(String author)
         {
             intances++;
@@ -36,13 +35,17 @@ namespace ConsoleAppProject.App04
             comments = new List<String>();
         }
 
-
+        /// <summary>
+        /// Increases like for a post
+        /// </summary>
         public void Like()
         {
             likes++;
         }
 
-
+        /// <summary>
+        /// decreases like for a post
+        /// </summary>
         public void Unlike()
         {
             if (likes > 0)
@@ -51,7 +54,9 @@ namespace ConsoleAppProject.App04
             }
         }
 
-
+        /// <summary>
+        /// Display the post made by users
+        /// </summary>
         public virtual void Display()
         {
            
@@ -85,6 +90,9 @@ namespace ConsoleAppProject.App04
         }
 
 
+        /// <summary>
+        /// Calculates since a post was made
+        /// </summary>
         private String FormatElapsedTime(DateTime time)
         {
             DateTime current = DateTime.Now;
@@ -103,6 +111,9 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// Used to display comments
+        /// </summary>
         public void CommentDisplay()
         {
             foreach (string i in comments)

@@ -7,6 +7,9 @@ namespace ConsoleAppProject.App04
 {
     public class NewsFeed
     {
+        /// <summary>
+        /// Variables declared for use in app
+        /// </summary>
         private readonly List<Post> posts;
         public String Message;
         public String Author;
@@ -14,12 +17,19 @@ namespace ConsoleAppProject.App04
         public String Caption;
         public int like;
 
+        /// <summary>
+        ///  Constructor for Newsfeed
+        /// </summary>
         public NewsFeed()
         {
             posts = new List<Post>();
         }
 
-        public void AddPhoto(PhotoPost photo)
+        /// <summary>
+        /// Adds Photo Messages
+        /// </summary>
+        /// <param name="photo"></param>
+        public void AddPhotoMessage(PhotoPost photo)
         {
             posts.Add(photo);
         }
@@ -58,7 +68,7 @@ namespace ConsoleAppProject.App04
             Caption = EnterText("      Enter Caption >");
             Console.WriteLine();
             PhotoPost post = new PhotoPost(Author, Filename, Caption);
-            AddPhoto(post);
+            AddPhotoMessage(post);
         }
 
         public string EnterText(string EnterTextMessage)
