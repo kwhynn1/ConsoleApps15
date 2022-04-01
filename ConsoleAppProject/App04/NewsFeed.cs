@@ -41,6 +41,8 @@ namespace ConsoleAppProject.App04
 
         public void Display()
         {
+            ConsoleHelper.OutputTitle("Displaying All Posts");
+
             foreach (Post post in posts)
             {
                 post.Display();

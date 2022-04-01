@@ -17,6 +17,10 @@ namespace ConsoleAppProject.App04
 
         public void Run()
         {
+            MessagePost message = new MessagePost("Hello", "Derek");
+            NewsFeed.AddMessagePost(message);
+            NewsFeed.AddComment(1, "My Comment");
+            
             DisplayMenu();
         }
 
@@ -28,7 +32,9 @@ namespace ConsoleAppProject.App04
             string[] choices = new string[]
             {
                 "Add Message Post", "Add Photo Post", 
-                "Display All Posts", "Display By Author" , "Remove Post", "Like", "Unlike" , "Add A Comment" , "Quit"
+                "Display All Posts", "Display By Author" , 
+                "Remove Post", "Like", "Unlike" , 
+                "Add A Comment" , "Quit"
             };
 
             bool Quit = false; ;
@@ -43,39 +49,68 @@ namespace ConsoleAppProject.App04
                     case 2: NewsFeed.CreatePhotoPost(); break;
                     case 3: DisplayAll();
                             break;
-                    case 4: DisplayAll();
-                            Console.Write("      Enter Author Name> "); 
-                            string author = Console.ReadLine();
-                            NewsFeed.FindPostByAuthor(author);
-                            Console.WriteLine();
-                            break;
-                    case 5: DisplayAll(); 
-                            int ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Remove> ", 1, NewsFeed.AmountOfPosts());
-                            NewsFeed.FindPost(ID); 
-                            NewsFeed.RemovePost(ID);
-                            Console.WriteLine();
-                            break;
+                    case 4:
+                        DisplayByAuthor();
+                        break;
+                    case 5:
+                        int ID;
+                        RemovePost();
+                        break;
                     case 6:
-                            ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
-                            NewsFeed.Addlike(ID);
-                            break;
+                        ID = LikePost();
+                        break;
                     case 7:
-                            ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
-                            NewsFeed.unlike(ID);
-                            break;
+                        ID = UnlikePost();
+                        break;
                     case 8:
-                            ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
-                            Console.WriteLine();
-                            Console.WriteLine("      Enter Your Comment");
-                            string comment = Console.ReadLine();
-                            NewsFeed.AddComment(ID, comment);   
-                            break;
+                        ID = AddComment();
+                        break;
                     case 9:Quit=true; break;
-
                 } 
 
             } while (!Quit);
+        }
 
+        private int AddComment()
+        {
+            int ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
+            Console.WriteLine();
+            Console.WriteLine("      Enter Your Comment");
+            string comment = Console.ReadLine();
+            NewsFeed.AddComment(ID, comment);
+            return ID;
+        }
+
+        private int UnlikePost()
+        {
+            int ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Unlike> ", 1, NewsFeed.AmountOfPosts());
+            NewsFeed.unlike(ID);
+            return ID;
+        }
+
+        private int LikePost()
+        {
+            int ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
+            NewsFeed.Addlike(ID);
+            return ID;
+        }
+
+        private void RemovePost()
+        {
+            DisplayAll();
+            int ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Remove> ", 1, NewsFeed.AmountOfPosts());
+            NewsFeed.FindPost(ID);
+            NewsFeed.RemovePost(ID);
+            Console.WriteLine();
+        }
+
+        private void DisplayByAuthor()
+        {
+            DisplayAll();
+            Console.Write("      Enter Author Name> ");
+            string author = Console.ReadLine();
+            NewsFeed.FindPostByAuthor(author);
+            Console.WriteLine();
         }
 
         private void DisplayAll()

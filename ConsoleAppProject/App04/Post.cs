@@ -77,13 +77,13 @@ namespace ConsoleAppProject.App04
 
             Console.WriteLine();
 
-            if (comments == null)
+            if (comments.Count == 0)
             {
                 Console.WriteLine("      No comment");
             }
             else
             {
-                Console.Write("      Comment:");
+                Console.Write("      Comments:");
                 CommentDisplay();
                 Console.WriteLine();
             }
@@ -116,9 +116,9 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public void CommentDisplay()
         {
-            foreach (string i in comments)
+            foreach (string comment in comments)
 
-                Console.WriteLine(i);
+                Console.WriteLine(comment);
         }
 
     }
