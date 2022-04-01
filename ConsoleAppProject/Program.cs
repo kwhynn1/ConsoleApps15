@@ -2,7 +2,7 @@
 using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
-
+using ConsoleAppProject.App04;
 namespace ConsoleAppProject
 {
     /// <summary>
@@ -37,6 +37,8 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine("    c = Grade Calculator");
             Console.WriteLine();
+            Console.WriteLine("    d = Social Network");
+            Console.WriteLine();
             Console.Write("    >");
             ans = Console.ReadLine();
             ans.ToLower();
@@ -61,6 +63,11 @@ namespace ConsoleAppProject
                    StudentGrades app03 = new StudentGrades();
                     app03.Run();
                     break;
+                case "d":
+
+                    NetworkApp app04 = new NetworkApp();
+                    app04.Run();
+                    break;
 
 
                 default:
@@ -73,6 +80,8 @@ namespace ConsoleAppProject
                     Console.WriteLine("    b = BMI Converter");
                     Console.WriteLine();
                     Console.WriteLine("    c = Grade Calculator");
+                    Console.WriteLine();
+                    Console.WriteLine("    d = Social Network");
                     Console.WriteLine();
                     Console.Write("    >");
                     ans = Console.ReadLine();
