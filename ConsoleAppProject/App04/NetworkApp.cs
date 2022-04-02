@@ -16,11 +16,7 @@ namespace ConsoleAppProject.App04
 
 
         public void Run()
-        {
-            MessagePost message = new MessagePost("Hello", "Derek");
-            NewsFeed.AddMessagePost(message);
-            NewsFeed.AddComment(1, "My Comment");
-            
+        {            
             DisplayMenu();
         }
 
@@ -90,7 +86,7 @@ namespace ConsoleAppProject.App04
 
         private int LikePost()
         {
-            int ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Comment> ", 1, NewsFeed.AmountOfPosts());
+            int ID = (int)ConsoleHelper.InputNumber("      Enter Post ID For The Post You Want To Like> ", 1, NewsFeed.AmountOfPosts());
             NewsFeed.Addlike(ID);
             return ID;
         }
