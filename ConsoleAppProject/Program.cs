@@ -3,6 +3,7 @@ using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
 using ConsoleAppProject.App04;
+using ConsoleAppProject.App05;
 namespace ConsoleAppProject
 {
     /// <summary>
@@ -39,6 +40,8 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine("    d = Social Network");
             Console.WriteLine();
+            Console.WriteLine("    e = RPS");
+            Console.WriteLine();
             Console.Write("    >");
             ans = Console.ReadLine();
             ans.ToLower();
@@ -67,6 +70,12 @@ namespace ConsoleAppProject
 
                     NetworkApp app04 = new NetworkApp();
                     app04.Run();
+                    break;
+
+                case "e":
+
+                    Game app05 = new Game();
+                    app05.Run();
                     break;
 
 

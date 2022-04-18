@@ -37,5 +37,10 @@ namespace ConsoleAppProject.App05
             Choice = GameChoices.None;
         }
 
+        public void IncreaseScore(Player player, int increacse)
+        {
+            player.Score = increacse + player.Score;
+        }
+
     }
 }
