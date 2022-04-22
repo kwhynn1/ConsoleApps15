@@ -6,6 +6,9 @@ namespace ConsoleAppProject.App05
 {
    public class Player
     {
+        /// <summary>
+        /// Enum class for Game Choices
+        /// </summary>
         public enum GameChoices
         {
             None,
@@ -14,6 +17,9 @@ namespace ConsoleAppProject.App05
             Scissors
         }
 
+        /// <summary>
+        /// Enum class for Game Player
+        /// </summary>
         public enum GamePlayer
         {
             None,
@@ -21,14 +27,17 @@ namespace ConsoleAppProject.App05
             Computer
         }
 
+        /// <summary>
+        /// Variables used in the Player class
+        /// </summary>
         public string Name;
-
         public int Score;
-
         public GamePlayer PlayerType;
-
         public GameChoices Choice;
 
+        /// <summary>
+        ///  Constructor for Player Class
+        /// </summary>
         public Player(string name, GamePlayer playerType) 
         { 
             this.Name = name;
@@ -37,6 +46,9 @@ namespace ConsoleAppProject.App05
             Choice = GameChoices.None;
         }
 
+        /// <summary>
+        ///  Used to increase Player score
+        /// </summary>
         public void IncreaseScore(Player player, int increacse)
         {
             player.Score = increacse + player.Score;

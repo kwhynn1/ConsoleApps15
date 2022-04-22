@@ -7,6 +7,9 @@ namespace ConsoleAppProject.App05
 {
     public class Game
     {
+        /// <summary>
+        /// Variables used in the Game class
+        /// </summary>
         public Player Player1;
         public Player Player2;
         public Player Computer;
@@ -15,13 +18,19 @@ namespace ConsoleAppProject.App05
         private Random generator = new Random(55);
         public string Name;
         public int Rounds;
-
+       
+        /// <summary>
+        /// Used to run the Game.
+        /// </summary>
         public void Run()
         {
             ConsoleHelper.OutputHeading("Kyle & Vince Rock Paper Scissors");
-            Menu();
+            ShowMenu();
         }
 
+        /// <summary>
+        ///  Allows a playter to create a player and enter a name
+        /// </summary>
         public Player EnterPlayerName()
         {
             Console.WriteLine();
@@ -30,6 +39,10 @@ namespace ConsoleAppProject.App05
             Player player = new Player(Name, Player.GamePlayer.Player);
             return player;
         }
+
+        /// <summary>
+        ///  Allows the player to make a choice of Rock, papaer, Scissors
+        /// </summary>
         public void EnterChoice(Player player)
         {
 
@@ -74,6 +87,10 @@ namespace ConsoleAppProject.App05
                 }
             }
         }
+
+        /// <summary>
+        ///  Used to pointpoints to players
+        /// </summary>
         public void ScoreRound(Player player, Player player2)
             {
                 if (player.Choice == Player.GameChoices.Rock && player2.Choice == Player.GameChoices.Paper)
@@ -138,7 +155,11 @@ namespace ConsoleAppProject.App05
                     Console.WriteLine($"1 Point is awarded to {Winner.Name}");
                 }
             }
-        public void GameRound(string mode)
+        
+        /// <summary>
+        ///  ALlows player to choose between Player Vs Player and Player vs Computer
+        /// </summary>
+        public void ChooseGameRound(string mode)
         {
                 Console.WriteLine("Enter The Number of Rounds you would like to Play");
                 string input = Console.ReadLine();
@@ -203,11 +224,15 @@ namespace ConsoleAppProject.App05
 
             }
         }
-        public void Menu ()
+
+        /// <summary>
+        ///  Choose the player a list of choices and allows them to make a slection
+        /// </summary>
+        public void ShowMenu ()
         {
             string[] choices = new string[]
               {
-                "Player Vs Computer","Player vs Player ", "Quit"
+                "Player Vs Computer", "Player vs Player ", "HighScore Table", "Quit"
               };
             bool Quit = false; ;
             do
@@ -218,15 +243,53 @@ namespace ConsoleAppProject.App05
                     case 1:
                         Player1 = EnterPlayerName();
                         Computer = new Player("Computer", Player.GamePlayer.Computer);
-                        GameRound("single"); break;
+                        ChooseGameRound("single"); break;
                     case 2: Player1 = EnterPlayerName();
                             Player2 = EnterPlayerName();
-                            GameRound("vs"); break;
-
-                    case 3: Quit = true; break;
+                            ChooseGameRound("vs"); break;
+                    case 3: OutputHighScoreTable(Player1, Computer, Player2); break;
+                    case 4: Quit = true; break;
                 }
 
             } while (!Quit);
+        }
+
+        /// <summary>
+        ///  Shows the scores of Players and the Computer
+        /// </summary>
+        public void OutputHighScoreTable(Player player, Player player2, Player player3)
+        {
+            if (player != null)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"    {player.Name}: {player.Score}");
+            } else 
+            {
+                Console.WriteLine();
+                Console.WriteLine($"    No Round Played Yet For Player 1");
+            }
+
+            if (player2 != null)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"    {player2.Name}: {player2.Score}");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("    No Round Played Yet For Computer");
+            }
+
+            if (player3 != null)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"    {player3.Name}: {player3.Score}");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("    No Round Played Yet For Player 2");
+            }
         }
 
     }
