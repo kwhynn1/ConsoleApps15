@@ -259,6 +259,10 @@ namespace ConsoleAppProject.App05
         /// </summary>
         public void OutputHighScoreTable(Player player, Player player2, Player player3)
         {
+
+            Console.WriteLine();
+            Console.WriteLine("    High Score Table");
+
             if (player != null)
             {
                 Console.WriteLine();
@@ -289,6 +293,7 @@ namespace ConsoleAppProject.App05
             {
                 Console.WriteLine();
                 Console.WriteLine("    No Round Played Yet For Player 2");
+                Console.WriteLine();
             }
         }
 
